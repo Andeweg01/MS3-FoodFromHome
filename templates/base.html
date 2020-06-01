@@ -5,13 +5,60 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
+    <!-- css and fonts -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 
-    <title>Hello, world!</title>
+    <title>Food From Home - 2020</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+       <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="{{url_for('get_products')}}" class="brand-logo"><img src="assets/img/FFH_logo.png" alt="TradTrackerLogo" class="center img-fluid" style="width:60%; height: 60%;" /></a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="{{url_for('get_products')}}">Home</a></li>
+                    <li><a href="{{url_for('add_product')}}">New Product</a></li>
+                    <li><a href="{{url_for('get_categories')}}">Manage Categories</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="{{url_for('get_products')}}">Home</a></li>
+                    <li><a href="{{url_for('add_product')}}">New Product</a></li>
+                    <li><a href="{{url_for('get_categories')}}">Manage Categories</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+    	{% block content %}
+	    {% endblock %}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.collapsible').collapsible();
+            $('select').material_select();
+            $('.sidenav').sidenav();
+        });
+
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15, // Creates a dropdown of 15 years to control year,
+            today: 'Today',
+            clear: 'Clear',
+            close: 'Ok',
+            closeOnSelect: false // Close upon selecting a date,
+        });
+        </script>
+    <script type="text/javascript">
+        document.getElementById("matfixer").addEventListener("click", function(e) {
+            e.stopPropagation();
+        });
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
