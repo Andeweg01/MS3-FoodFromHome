@@ -1,4 +1,4 @@
-<img src="https://static/img/FFH_logo.png" style="margin: 0;">
+<img src="https://github.com/Andeweg01/MS3-FoodFromHome/blob/master/static/img/FFH_logo.png" style="margin: 0;">
 
 Welcome Sascha Andeweg,
 
