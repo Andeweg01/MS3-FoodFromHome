@@ -17,7 +17,7 @@
        <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="{{url_for('get_products')}}" class="brand-logo"><img src="assets/img/FFH_logo.png" alt="TradTrackerLogo" class="center img-fluid" style="width:60%; height: 60%;" /></a>
+                <a href="{{url_for('get_products')}}" class="brand-logo"><img src="static/img/FFH_logo.png" alt="TradTrackerLogo" class="center img-fluid" style="width:60%; height: 60%;" /></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="{{url_for('get_products')}}">Home</a></li>
@@ -32,6 +32,14 @@
             </div>
         </nav>
     </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                
+            </div>
+        </div>
+    </div>
+
     <div class="container">
     	{% block content %}
 	    {% endblock %}
