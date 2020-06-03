@@ -10,8 +10,11 @@
     <!-- css and fonts -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora" type="text/css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
-    <link rel="stylesheet" href="{{url_for('static', filename='../css/style.css')}}" type="text/css" />
+	<link rel="stylesheet" href="../static/css/style.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='../css/style.css')}}" type="text/css" /> -->
 
     <title>Food From Home - 2020</title>
   </head>
@@ -37,17 +40,30 @@
         </div>
       </nav>
     </header>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div class="jumbotron">
-              <h1 class="">Your Food - Your Identity</h1>
-              <p class="">find your home favourites abroad</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
+           <div class="jumbotron-fluid">
+            <h1 class="white-text center-align">Your Food - Your Identity</h1>
+			<h2 class="white-text center-align">find your home favourites abroad</h2>
+      	  </div>
+	  <div></div>
+	<div class="row">
+		<div class="col-4 col-xl-5">
+			<div class="row">
+			<div class="col-2"><p><strong>origin</strong> </p></div>
+			<div class="col-2"><a href="#"><img src="../static/img/flag-netherlands_-1.png" alt="flag-nl" class="rounded-circle img-fluid"></a></div>
+			<div class="col-2"><a href="#"><img src="../static/img/flag-belgium_-1.png" alt="flag-be" class="rounded-circle img-fluid"></a></div>
+			<div class="col-2"><a href="#"><img src="../static/img/flag-france_-1.png" alt="flag-fr" class="rounded-circle img-fluid"></a></div>
+			<div class="col-2"><a href="#"><img src="../static/img/flag-germany_-1.png" alt="flag-de" class="rounded-circle img-fluid"></a></div>
+			<div class="col-2"><a href="#"><img src="../static/img/flag-spain_-1.png" alt="flag-es" class="rounded-circle img-fluid"></a></div>
+			</div>
+		</div>
+		</div>
+			<div class="col-8">
+			horizontal navigation
+			</div>
+		</div>
+		<div class="col-8">
+		</div>
+	</div>
     <div class="container">
       {% block content %} {% endblock %}
     </div>
