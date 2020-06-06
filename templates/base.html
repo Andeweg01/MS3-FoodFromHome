@@ -1,90 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8" />
-<meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-<!-- css and fonts -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora" />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
-<link rel="stylesheet" type="text/css" href="../static/css/style.css" />
-<!-- <link rel="stylesheet" href="{{url_for('static', filename='../css/style.css')}}" type="text/css" /> -->
+	<!-- css and fonts -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora" />
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css" />
+	<!-- <link rel="stylesheet" href="{{url_for('static', filename='../static/css/style.css')}}" type="text/css" /> -->
 
-<title>Food From Home - 2020</title>
+	<title>Food From Home - 2020</title>
 </head>
+
 <body>
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="{{url_for('get_products')}}"><img src="../static/img/FFH_logo_bg_ccf.gif" alt="Logo" class="center img-fluid mt-1"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active"> <a class="nav-link center-align" href="{{url_for('get_products')}}">HOME <span class="sr-only">(current)</span></a> </li>
-        <li class="nav-item"> <a class="nav-link center-align" href="{{url_for('add_product')}}">ADD PRODUCT</a> </li>
-        <li class="nav-item"> <a class="nav-link center-align" href="#">EDIT PRODUCT</a> </li>
-        <li class="nav-item"> <a class="nav-link center-align" href="{{url_for('get_categories')}}">ADMIN</a> </li>
-        <li class="nav-item"> <a class="nav-link center-align" href="#">ABOUT</a> </li>
-      </ul>
-    </div>
-  </nav>
-</header>
-<div class="jumbotron-fluid">
-  <h1 class="white-text center-align">Your Food - Your Identity</h1>
-<hr class="solid">
-  <h2 class="white-text center-align">find your home favourites in Ireland</h2>
-</div>
-<p class="center-align mt-3 mx-15">Select where the product you're looking for is from,<br>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light"><a class="navbar-brand"
+				href="{{url_for('get_products')}}"><img src="../static/img/FFH_logo_bg_ccf.gif" alt="Logo" class="center img-fluid mt-1"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+						<li class="nav-item active"> <a class="nav-link center-align"
+								href="{{url_for('get_products')}}">HOME <span class="sr-only">(current)</span></a> </li>
+						<li class="nav-item"> <a class="nav-link center-align" href="{{url_for('add_product')}}">ADD
+								PRODUCT</a> </li>
+						<li class="nav-item"> <a class="nav-link center-align" href="#">EDIT PRODUCT</a> </li>
+						<li class="nav-item"> <a class="nav-link center-align"
+								href="{{url_for('get_categories')}}">ADMIN</a> </li>
+						<li class="nav-item"> <a class="nav-link center-align" href="#">ABOUT</a> </li>
+					</ul>
+				</div>
+		</nav>
+	</header>
+	<div class="jumbotron-fluid">
+		<h1 class="white-text center-align">Your Food - Your Identity</h1>
+		<hr class="solid">
+		<h2 class="white-text center-align">find your home favourites in Ireland</h2>
+	</div>
+	<p class="center-align mt-3 mx-15">Select where the product you're looking for is from,<br>
 	  select a category and maybe sort on brand, product or other filters...<br>
 	and find a supplier in Ireland!</p>
-<div class="row mt-3">
-  <div class="col-sm-12 col-md-4">
-    <div class="row">
-      <div class="col-2 center-align"><a href="#"><img src="../static/img/flag-netherlands_-1.png" alt="flag-nl" class="rounded-circle img-fluid"></a><br>
-		  <p align="center">NL</p></div>
-      <div class="col-2 center-align"><a href="#"><img src="../static/img/flag-belgium_-1.png" alt="flag-be" class="rounded-circle img-fluid"></a><br>
-		  <p align="center">BE</p></div>
-      <div class="col-2 center-align"><a href="#"><img src="../static/img/flag-france_-1.png" alt="flag-fr" class="rounded-circle img-fluid"></a><br>
-		  <p align="center">FR</p></div>
-      <div class="col-2 center-align"><a href="#"><img src="../static/img/flag-germany_-1.png" alt="flag-de" class="rounded-circle img-fluid"></a><br>
-		  <p align="center">DE</p></div>
-      <div class="col-2 center-align"><a href="#"><img src="../static/img/flag-spain_-1.png" alt="flag-es" class="rounded-circle img-fluid"></a><br>
-		  <p align="center">ES</p></div>
-    </div>
-  </div>
-  <div class="col-8">
-    <div class="row">
-      <div class="col-12">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Product category</button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a> </div>
-        </div>
-      </div>
-      <div class="col-12 mt-3">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort</button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a> </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-	<div class="container"> {% block content %} {% endblock %} </div>
-	
-<footer class="footer mt-auto">
-	<div class="container-fluid bg-dark"><p class="ftr-text center-align">Sascha Andeweg Milestone Project 3 - CodeInstitute - 2020</p>
+		<div class="row mt-3">
+			<div class="col-sm-12 col-md-4">
+				<div class="row">
+					<div class="col-2 center-align"><a
+							href="#"><img src="../static/img/flag-netherlands_-1.png" alt="flag-nl" class="rounded-circle img-fluid"></a><br>
+							<p align="center">NL</p>
+					</div>
+					<div class="col-2 center-align"><a
+							href="#"><img src="../static/img/flag-belgium_-1.png" alt="flag-be" class="rounded-circle img-fluid"></a><br>
+							<p align="center">BE</p>
+					</div>
+					<div class="col-2 center-align"><a
+							href="#"><img src="../static/img/flag-france_-1.png" alt="flag-fr" class="rounded-circle img-fluid"></a><br>
+							<p align="center">FR</p>
+					</div>
+					<div class="col-2 center-align"><a
+							href="#"><img src="../static/img/flag-germany_-1.png" alt="flag-de" class="rounded-circle img-fluid"></a><br>
+							<p align="center">DE</p>
+					</div>
+					<div class="col-2 center-align"><a
+							href="#"><img src="../static/img/flag-spain_-1.png" alt="flag-es" class="rounded-circle img-fluid"></a><br>
+							<p align="center">ES</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-8">
+				<div class="row">
+					<div class="col-12">
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Product category</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> <a class="dropdown-item"
+									href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a
+									class="dropdown-item" href="#">Something else here</a> </div>
+						</div>
+					</div>
+					<div class="col-12 mt-3">
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> <a class="dropdown-item"
+									href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a
+									class="dropdown-item" href="#">Something else here</a> </div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-</footer>
-	
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> 
-<script type="text/javascript">
-      $(document).ready(function () {
+
+		<div class="container"> {% block content %} {% endblock %} </div>
+
+		<footer class="footer mt-auto">
+			<div class="container-fluid bg-dark">
+				<p class="ftr-text center-align">Sascha Andeweg Milestone Project 3 - CodeInstitute - 2020</p>
+			</div>
+		</footer>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
         $(".collapsible").collapsible();
         $("select").material_select();
         $(".sidenav").sidenav();
@@ -98,31 +118,26 @@
         close: "Ok",
         closeOnSelect: false, // Close upon selecting a date,
       });
-    </script> 
-<script type="text/javascript">
-      document
+		</script>
+		<script type="text/javascript">
+			document
         .getElementById("matfixer")
         .addEventListener("click", function (e) {
           e.stopPropagation();
         });
-    </script> 
+		</script>
 
-<!-- Optional JavaScript --> 
-<!-- jQuery first, then Popper.js, then Bootstrap JS --> 
-<script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script> 
-<script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script> 
-<script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-    ></script>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+		</script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+			integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+		</script>
 </body>
+
 </html>
