@@ -10,7 +10,17 @@ body {
     margin: 0;
 }
 
-/* --------------------------------------------Bootstrap edits */
+/* ----------------Bootstrap and Materialize edits */
+
+ul > a {
+	background-color: white;
+}
+
+a:hover {
+  color: #ccf;
+  background-color: transparent;
+  text-decoration: none;
+}
 
 .navbar {
     min-height: 79px !important;
@@ -29,11 +39,15 @@ body {
 }
 
 .bg-success {
-  background-color: #fff !important;
+  background-color: #ccf !important;
 }
 
 button:focus {
-	background-color: #fff;
+	background-color: #ccf;
+}
+
+.nav {
+	background-color: #ccf;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -53,7 +67,12 @@ button:focus {
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0);
+}
+
+.nav-link {
+	background-color: rgba(204, 204, 255, 0.8);
+	border-color: #ccf;
 }
 
 .jumbotron-fluid {
@@ -70,7 +89,7 @@ button:focus {
 }
 
 .bg-light {
-    background-color: #FFF !important;
+    background-color: #ccf !important;
 }
 
 .img-fluid {
@@ -78,8 +97,7 @@ button:focus {
     height: auto;
     }
 
-
-/* --------------------------------------------Colours */
+/* -------------------------------------Colours */
 
 .purple {
 	color: #CCF;
@@ -96,6 +114,11 @@ button:focus {
 .white {
 	color: white;
 }
+
+.transparant {
+	background-color: transparent;
+}
+
 
 /* --------------------------------------------Typography */
 
@@ -136,11 +159,6 @@ p {
 	line-height: 20px; 
 } 
 
-.bold { 
-	font-style: bold; 
-	font-variant: bold; 
-} 
-
 blockquote { 
 	font-family: Lora; 
 	font-size: 21px; 
@@ -150,9 +168,10 @@ blockquote {
 	line-height: 30px; 
 }
 
-pre { 
+.ftr-text { 
 	font-family: Lora; 
-	font-size: 13px; 
+	color: #ccf;
+	font-size: 10px; 
 	font-style: normal; 
 	font-variant: normal; 
 	font-weight: 400; 
