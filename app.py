@@ -16,7 +16,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_products')
 def get_products():
-    return render_template("products.html", products=mongo.db.products.find())
+    return render_template("products.html", products=mongo.db.product.find())
 
 
 
@@ -27,14 +27,14 @@ def add_product():
 
 @app.route('/insert_product', methods=['POST'])
 def insert_product():
-    products = mongo.db.products
+    products = mongo.db.product
     products.insert_one(request.form.to_dict())
     return redirect(url_for('get_products'))
 
 
 @app.route('/edit_product/<product_id>')
 def edit_product(product_id):
-    the_product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    the_product = mongo.db.product.find_one({"_id": ObjectId(product_id)})
     all_categories = mongo.db.categories.find()
     return render_template('editproduct.html', 
         product=the_product, categories=all_categories)
@@ -42,7 +42,7 @@ def edit_product(product_id):
 
 @app.route('/update_product/<product_id>', methods=['POST'])
 def update_product(product_id):
-    products = mongo.db.products
+    products = mongo.db.product
     products.update( {'_id': ObjectId(product_id)},
     {
         'product_name': request.form.get('product_name'),
@@ -58,7 +58,7 @@ def update_product(product_id):
 
 @app.route('/delete_product/<product_id>')
 def delete_product(product_id):
-    mongo.db.products.remove({'_id': ObjectId(product_id)})
+    mongo.db.product.remove({'_id': ObjectId(product_id)})
     return redirect(url_for('get_products'))
 
 
