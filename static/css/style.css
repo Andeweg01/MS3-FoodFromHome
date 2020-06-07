@@ -27,6 +27,18 @@ a:hover {
   min-height: 79px !important;
 }
 
+.btn_small {
+    height: 24px;
+    width: 60px;
+    line-height: 24px;
+    margin: 10px;
+    padding: 0 0.5em;
+}
+
+.product_header {
+    margin-top: 5px;
+}
+
 .btn-secondary {
   color: #000;
   background-color: #fff;
