@@ -19,6 +19,11 @@ def get_products():
     return render_template("products.html", products=mongo.db.product.find())
 
 
+@app.route('/edit_products')
+def edit_products():
+    return render_template("editproducts.html", products=mongo.db.product.find())
+
+
 @app.route('/add_product')
 def add_product():
     return render_template("addproduct.html", categories=mongo.db.categories.find())
