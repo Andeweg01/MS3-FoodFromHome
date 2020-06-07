@@ -152,11 +152,11 @@ h2 {
 }
 
 h3 {
-  font-family: Lora;
-  font-size: 14px;
-  font-style: normal;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 24px;
+  font-style: bold;
   font-variant: normal;
-  font-weight: 300;
+  font-weight: 600;
   line-height: 15.4px;
 }
 
@@ -181,7 +181,7 @@ blockquote {
 .ftr-text {
   font-family: Lora;
   color: #ccf;
-  font-size: 10px;
+  font-size: 12px;
   font-style: normal;
   font-variant: normal;
   font-weight: 400;

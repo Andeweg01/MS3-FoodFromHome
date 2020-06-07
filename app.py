@@ -7,7 +7,7 @@ if path.exists("env.py"):
     import env
 
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = 'ffh'
+app.config["MONGO_DBNAME"] = 'ms3-ffh'
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI', 'mongodb://localhost')
 
 mongo = PyMongo(app)
@@ -17,7 +17,6 @@ mongo = PyMongo(app)
 @app.route('/get_products')
 def get_products():
     return render_template("products.html", products=mongo.db.product.find())
-
 
 
 @app.route('/add_product')
