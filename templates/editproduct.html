@@ -1,11 +1,15 @@
-{% extends 'base.html' %} {% block content %}
+    {% extends 'base.html' %}
+    {% block content %}
 
-<h3>Edit Product</h3>
+<div class="row">
+
+    <h3>Edit Product</h3>
+</div>
+
 <div class="row">
   <form action="{{ url_for('update_product', product_id=product._id) }}" method="POST" class="col s12">
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">poll</i>
         <select id="category" name="category_name">
           <option value="" disabled selected>Choose Category</option>
           {% for cat in categories %}
@@ -21,14 +25,12 @@
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">assignment</i>
         <input id="product_name" name="product_name" type="text" class="validate" value="{{product.product_name}}">
         <label for="icon_prefix">Product Name</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <i class="material-icons prefix">subject</i>
         <textarea
           name="task_description"
           id="task_description"
@@ -38,7 +40,6 @@
     </div>
     <div class="row">
       <div id="matfixer" class="input-field col s12">
-        <i class="material-icons prefix">today</i>
         <input id="product_date" name="product_date" type="text" class="datepicker">
         <label for="icon_prefix">Online ordering</label>
       </div>

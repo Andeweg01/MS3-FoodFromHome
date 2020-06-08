@@ -31,8 +31,15 @@ def add_product():
 
 @app.route('/insert_product', methods=['POST'])
 def insert_product():
-    products = mongo.db.product
-    products.insert_one(request.form.to_dict())
+    product = mongo.db.product
+    product.insert_one(request.form.to_dict())
+    return render_template("addsupplier.html")
+
+
+@app.route('/insert_supplier', methods=['POST'])
+def insert_supplier():
+    supplier = mongo.db.supplier
+    supplier.insert_one(request.form.to_dict())
     return redirect(url_for('get_products'))
 
 
@@ -52,10 +59,12 @@ def update_product(product_id):
         'product_name': request.form.get('product_name'),
         'product_brand': request.form.get('product_name'),
         'category_name': request.form.get('category_name'),
-        'product_date': request.form.get('product_date'),
+        'entry_date': request.form.get('entry_date'),
         'product_description': request.form.get('product_description'),
         'product_img': request.form.get('product_img'),
         'product_price': request.form.get('product_price'),
+        'origin_name': request.form.get('origin_name'),
+        'supplier_name': request.form.get('supplier_name'),
     })
     return redirect(url_for('get_products'))
 
