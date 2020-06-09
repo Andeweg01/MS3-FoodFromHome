@@ -1,5 +1,54 @@
     {% extends 'base.html' %}
     {% block content %}
+	<p class="center-align mt-3 mx-15">Select where the product you're looking for is from,<br>
+	  select a category and maybe sort on brand, product or other filters...<br>
+	and find a supplier in Ireland!</p>
+		<div class="row mt-3">
+			<div class="col-sm-12 col-md-4">
+				<div class="row">
+					<div class="col-2 center-align"><a
+							href="#"><img src="../static/img/flag-netherlands_-1.png" alt="flag-nl" class="rounded-circle img-fluid"></a><br>
+							<p class="center-align">NL</p>
+					</div>
+					<div class="col-2 center-align"><a
+							href="#"><img src="../static/img/flag-belgium_-1.png" alt="flag-be" class="rounded-circle img-fluid"></a><br>
+							<p class="center-align">BE</p>
+					</div>
+					<div class="col-2 center-align"><a
+							href="#"><img src="../static/img/flag-france_-1.png" alt="flag-fr" class="rounded-circle img-fluid"></a><br>
+							<p class="center-align">FR</p>
+					</div>
+					<div class="col-2 center-align"><a
+							href="#"><img src="../static/img/flag-germany_-1.png" alt="flag-de" class="rounded-circle img-fluid"></a><br>
+							<p class="center-align">DE</p>
+					</div>
+					<div class="col-2 center-align"><a
+							href="#"><img src="../static/img/flag-spain_-1.png" alt="flag-es" class="rounded-circle img-fluid"></a><br>
+							<p class="center-align">ES</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-8">
+				<div class="row">
+					<div class="col-12">
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Product category</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> <a class="dropdown-item"
+									href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a
+									class="dropdown-item" href="#">Something else here</a> </div>
+						</div>
+					</div>
+					<div class="col-12 mt-3">
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> <a class="dropdown-item"
+									href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a
+									class="dropdown-item" href="#">Something else here</a> </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 <div class="row">
 
@@ -9,7 +58,7 @@
             {% for product in products %}
             <li>
                 <div class="collapsible-header">
-                    <div class="task_header col s3">
+                    <div class="product_header col s3">
                         <i class="material-icons">expand_more</i>
                             <strong>{{product.product_name}}</strong> - {{product.product_date}} - Category {{product.category_name}}
                     </div>

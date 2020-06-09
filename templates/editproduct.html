@@ -30,26 +30,44 @@
         </div>
         <div class="row">
         <div class="input-field col s12">
+            <input id="product_brand" name="product_brand" type="text" class="validate" value="{{product.product_brand}}">
+            <label for="icon_prefix">Product Brand</label>
+        </div>
+        </div>
+        <div class="row">
+        <div class="input-field col s12">
             <textarea
-            name="task_description"
-            id="task_description"
+            name="product_description"
+            id="product_description"
             class="materialize-textarea">{{product.product_description}}</textarea>
             <label for="icon_telephone">Product Description</label>
         </div>
         </div>
         <div class="row">
-        <div id="matfixer" class="input-field col s12">
-            <input id="product_date" name="product_date" type="text" class="datepicker">
-            <label for="icon_prefix">Online ordering</label>
+        <div class="input-field col s12">
+            <input id="product_img" name="product_img" type="text" class="validate" value="{{product.product_img}}">
+            <label for="icon_prefix">Product Image URL</label>
+        </div>
+        </div>
+        <div class="row">
+        <div class="input-field col s12">
+            <input id="product_price" name="product_price" type="text" class="validate" value="{{product.product_price}}">
+            <label for="icon_prefix">Product Price</label>
+        </div>
+        </div>
+        <div class="row">
+        <div class="input-field col s12">
+            <input id="origin_name" name="origin_name" type="text" class="validate" value="{{product.origin_name}}">
+            <label for="icon_prefix">Country of Origin</label>
         </div>
         </div>
         <div class="row">
         <div class="switch">
             <label>
-            {% if product.is_online %}
-            <input id="is_online" name="is_online" type="checkbox" checked>
+            {% if product.supplier_online %}
+            <input id="supplier_online" name="supplier_online" type="checkbox" checked>
             {% else %}
-            <input id="is_online" name="is_online" type="checkbox">
+            <input id="supplier_online" name="supplier_online" type="checkbox">
             {% endif %}
             <span class="lever"></span>
             Online ordering
