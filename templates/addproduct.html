@@ -5,7 +5,6 @@
 <div class="row">
     <form action="{{ url_for('insert_product') }}" method="POST" class="col s12">
         <div class="row">
-            <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">view_list</i>
                     <select id="category" name="category_name">
@@ -15,7 +14,6 @@
                         {% endfor %}
                     </select>
                     <label>Product Category</label>
-                </div>
             </div>
         </div>
 </div>
@@ -75,7 +73,7 @@
                 <label for="icon_prefix">Name of the Supplier where this product was found</label>
             </div>
         </div>
-        <div class="row">
+        <div class="row matfixer">
             <div class="input-field col s12">
                 <i class="material-icons prefix">today</i>
                 <input id="product_date" name="product_date" type="text" class="datepicker">
