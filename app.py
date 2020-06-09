@@ -16,17 +16,23 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_products')
 def get_products():
-    return render_template("products.html", products=mongo.db.product.find())
+    return render_template("products.html", 
+    products=mongo.db.product.find(), 
+    categories=mongo.db.categories.find(), 
+    supplier=mongo.db.supplier.find(),
+    origin=mongo.db.origin.find())
 
 
 @app.route('/edit_products')
 def edit_products():
-    return render_template("editproducts.html", products=mongo.db.product.find())
+    return render_template("editproducts.html", 
+    products=mongo.db.product.find())
 
 
 @app.route('/add_product')
 def add_product():
-    return render_template("addproduct.html", categories=mongo.db.categories.find())
+    return render_template("addproduct.html", 
+    categories=mongo.db.categories.find())
 
 
 @app.route('/insert_product', methods=['POST'])
@@ -56,15 +62,16 @@ def update_product(product_id):
     products = mongo.db.product
     products.update( {'_id': ObjectId(product_id)},
     {
-        'product_name': request.form.get('product_name'),
-        'product_brand': request.form.get('product_name'),
         'category_name': request.form.get('category_name'),
-        'entry_date': request.form.get('entry_date'),
+        'product_name': request.form.get('product_name'),
+        'product_brand': request.form.get('product_brand'),
         'product_description': request.form.get('product_description'),
         'product_img': request.form.get('product_img'),
         'product_price': request.form.get('product_price'),
+        'entry_date': request.form.get('entry_date'),
         'origin_name': request.form.get('origin_name'),
         'supplier_name': request.form.get('supplier_name'),
+        'user_code': request.form.get('user_code'),
     })
     return redirect(url_for('get_products'))
 
