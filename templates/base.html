@@ -27,7 +27,8 @@
 								href="{{url_for('get_products')}}">HOME <span class="sr-only">(current)</span></a> </li>
 						<li class="nav-item"> <a class="nav-link center-align" href="{{url_for('add_product')}}">ADD
 								PRODUCT</a> </li>
-						<li class="nav-item"> <a class="nav-link center-align" href="{{url_for('edit_products')}}">EDIT PRODUCT</a> </li>
+						<li class="nav-item"> <a class="nav-link center-align" href="{{url_for('edit_products')}}">EDIT
+								PRODUCT</a> </li>
 						<li class="nav-item"> <a class="nav-link center-align"
 								href="{{url_for('get_categories')}}">ADMIN</a> </li>
 						<li class="nav-item"> <a class="nav-link center-align" href="#">ABOUT</a> </li>
@@ -41,21 +42,21 @@
 		<h2 class="white-text center-align">find your home favourites in Ireland</h2>
 	</div>
 
-		<div class="container-fluid"> 
-            {% block content %} 
-            {% endblock %} 
-        </div>
+	<div class="container-fluid">
+		{% block content %}
+		{% endblock %}
+	</div>
 
-		<footer class="footer my-0">
-			<div class="container-fluid bg-dark">
-				<p class="ftr-text center-align">Sascha Andeweg - Milestone Project 3 - CodeInstitute - 2020</p>
-			</div>
-		</footer>
+	<footer class="footer my-0">
+		<div class="container-fluid bg-dark">
+			<p class="ftr-text center-align">Sascha Andeweg - Milestone Project 3 - CodeInstitute - 2020</p>
+		</div>
+	</footer>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function () {
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
         $(".collapsible").collapsible();
         $("select").material_select();
       });
@@ -68,14 +69,14 @@
         close: "Ok",
         closeOnSelect: false, // Close upon selecting a date,
       });
-		</script>
+	</script>
 
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-		</script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-			integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-		</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+	</script>
 </body>
 
 </html>

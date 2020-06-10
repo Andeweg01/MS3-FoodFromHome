@@ -1,29 +1,32 @@
-    {% extends 'base.html' %}
-    {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 
 <div class="row">
-    <h3>Edit Products</h3>
+	<h3>Edit Products</h3>
 </div>
-        <ul class="collapsible" data-collapsible="accordion">
-            {% for product in products %}
-            <li>
-                <div class="collapsible-header">
-                    <div class="product_header col s3">
-                        <i class="material-icons">expand_more</i>
-                        <a href="{{url_for('delete_product', product_id=product._id)}}" class="waves-effect waves-light btn">Done</a>
-                        <a href="{{url_for('edit_product', product_id=product._id)}}" class="waves-effect waves-light btn blue">Edit</a>
-                            <strong>{{product.product_name}}</strong> - {{product.product_date}} - Category {{product.category_name}}
-                    </div>
-                </div>
-                <div class="collapsible-body">
-                    <span>
+<ul class="collapsible" data-collapsible="accordion">
+	{% for product in products %}
+	<li>
+		<div class="collapsible-header">
+			<div class="product_header col s3">
+				<i class="material-icons">expand_more</i>
+				<a href="{{url_for('delete_product', product_id=product._id)}}"
+					class="waves-effect waves-light btn">Done</a>
+				<a href="{{url_for('edit_product', product_id=product._id)}}"
+					class="waves-effect waves-light btn blue">Edit</a>
+				<strong>{{product.product_name}}</strong> - {{product.product_date}} - Category
+				{{product.category_name}}
+			</div>
+		</div>
+		<div class="collapsible-body">
+			<span>
                     <h2><strong>{{product.product_brand}}</strong> - 
                     {{product.product_name}}</h2><br>
                     <p><strong>Entry date: </strong> {{product.entry_date}}</p><br>
                     <p>{{product.product_description}}</p><br>
                     </span>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-    {% endblock %}
+		</div>
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}
