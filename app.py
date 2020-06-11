@@ -20,6 +20,12 @@ def get_products():
     products=mongo.db.product.find())
 
 
+@app.route('/filter_origin')
+def filter_nl():
+    return render_template("products.html", 
+    products=mongo.db.product.find({'product_origin'}))
+
+
 @app.route('/edit_products')
 def edit_products():
     return render_template("editproducts.html", 
