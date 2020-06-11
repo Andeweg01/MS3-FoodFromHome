@@ -27,11 +27,10 @@
 		</div>
 	</div>
 	<div class="row">
-            {% for category in categories %}
         <ul class="collapsible" data-collapsible="accordion">
-            <li>
+            {% for category in categories %}
                 <div class="collapsible-header">
-                    <div class="col s3">
+				<div class="col s3">
                     <strong>{{category.category_name}}</strong>
                     </div>
                 </div>
@@ -40,7 +39,6 @@
                         <h2>{{category.category_name}}</h2>
                     </span>
                 </div>
-            </li>
             {% endfor %}
         </ul>
 	</div>
@@ -49,16 +47,17 @@
 
 		<h3>Products</h3>
 	</div>
+    <div class="row s12">
 	<ul class="collapsible" data-collapsible="accordion">
 		{% for product in products %}
 		<li>
 			<div class="collapsible-header">
-				<div class="product_header col s3">
+				<div class="col s12">
 					<i class="material-icons">expand_more</i>
 					<strong>{{product.product_name}}</strong> - {{product.product_date}} - Category
 					{{product.category_name}}
 				</div>
-			</div>
+			</div> 
 			<div class="collapsible-body">
 				<span>
                     <p><strong>{{product.product_brand}}</strong> - 
@@ -73,4 +72,5 @@
 		</li>
 		{% endfor %}
 	</ul>
+    </div>
 	{% endblock %}
