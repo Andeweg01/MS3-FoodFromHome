@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<p class="center-align">Select what country the product you're looking for is from or where it is popular,<br>
+<p class="center-align">Select what country the product you're looking for is from or particularly popular,<br>
 	  select a category and maybe sort on brand, product or other filters...<br>
 	  and find a supplier in Ireland!</p>
 	<div class="row">
@@ -27,19 +27,23 @@
 		</div>
 	</div>
 	<div class="row">
-		<a class="dropdown-button btn" href='#' data-activates='dropdown1'>Product category</a>
-		<ul id='dropdown1' class='dropdown-content'>
-			<li><a href="#!">one</a></li>
-		</ul>
+            {% for category in categories %}
+        <ul class="collapsible" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header">
+                    <div class="col s3">
+                    <strong>{{category.category_name}}</strong>
+                    </div>
+                </div>
+                <div class="collapsible-body">
+                    <span>
+                        <h2>{{category.category_name}}</h2>
+                    </span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
 	</div>
-<div class="row">
-		<a class="dropdown-button btn" href='#' data-activates='dropdown1'>Product category</a>
-		<ul id='dropdown1' class='dropdown-content'>
-			<li><a href="#!">one</a></li>
-		</ul>
-	</div>
-</div>
-</div>
 
 	<div class="row">
 
