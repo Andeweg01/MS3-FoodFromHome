@@ -26,27 +26,6 @@
 				<p class="center-align">ES</p>
 		</div>
 	</div>
-	<div class="row s12">
-        <div class="row">
-        <ul class="collapsible" data-collapsible="accordion">
-            {% for category in categories %}
-            <li>
-                <div class="collapsible-header">
-				<div class="col s12">
-					<i class="material-icons">expand_more</i>
-                    <strong>{{category.category_name}}</strong>
-                    </div>
-                </div>
-                <div class="collapsible-body">
-                    <span>
-                        <h2>{{category.category_name}}</h2>
-                    </span>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-        </div>
-	</div>
 
 	<div class="row">
 
@@ -59,7 +38,10 @@
         <div class="col l3 m6 s12">
             <div class="card sticky-action">
                 <div class="card-image">
-                    <img src="{{product.product_img}}" alt="Image of {{product.product_name}}"><a class="btn blue btn-floating halfway-fab pulse activator material-icons">...</a>
+                {% for category in categories %}
+                    <img src="{{category.category_img}}" alt="Image of {{category.category_name}}"><a class="btn blue btn-floating halfway-fab pulse activator material-icons">...</a>
+                {% endfor %}
+                    <span class="card-title"><h2>{{product.category_name}}</h2></span>
                 </div>
                 <div class="card-content">
                     <strong>{{product.product_brand}}<br>

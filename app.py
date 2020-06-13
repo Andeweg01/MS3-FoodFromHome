@@ -63,7 +63,6 @@ def update_product(product_id):
         'product_name': request.form.get('product_name'),
         'product_brand': request.form.get('product_brand'),
         'product_description': request.form.get('product_description'),
-        'product_img': request.form.get('product_img'),
         'product_price': request.form.get('product_price'),
         'entry_date': request.form.get('entry_date'),
         'origin_name': request.form.get('origin_name'),
