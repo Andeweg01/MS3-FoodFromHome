@@ -50,20 +50,29 @@
 
 	<div class="row">
 
-		<h3>Products</h3>
+		<h3>All Products</h3>
 	</div>
 
 <div class="container">
+		{% for product in products %}
     <div class="card">
     <div class="card-image">
+        <img src="{{product.product_img}}" alt="Image of {{product.product_name}}">
     </div>
     <div class="card-content">
+        <strong>{{product.product_brand}}<br>
+        {{product.product_name}}</strong><br>
+        Entry date: {{product.product_date}}<br>
+        Category: 	{{product.category_name}}
     </div>
     <div class="card-reveal">
+        <p>{{product.product_description}}
     </div>
     <div class="card-action">
+        <a>View Supplier</a>
     </div>
     </div>
+		{% endfor %}
 </div>
 
     <div class="row s12">
@@ -73,8 +82,7 @@
 			<div class="collapsible-header">
 				<div class="col s12">
 					<i class="material-icons">expand_more</i>
-					<strong>{{product.product_name}}</strong> - {{product.product_date}} - Category
-					{{product.category_name}}
+					
 				</div>
 			</div> 
 			<div class="collapsible-body">
