@@ -54,52 +54,29 @@
 	</div>
 
 <div class="container">
-		{% for product in products %}
-    
-    <div class="card sticky-action">
-    <div class="card-image">
-        <img src="{{product.product_img}}" alt="Image of {{product.product_name}}"><a class="btn blue btn-floating halfway-fab pulse activator material-icons">...</a>
-    </div>
-    <div class="card-content">
-        <strong>{{product.product_brand}}<br>
-        {{product.product_name}}</strong><br>
-        Entry date: {{product.product_date}}<br>
-        Category: 	{{product.category_name}}
-    </div>
-    <div class="card-reveal">
-        <span class="card-title">{{product.product_name}}<br>{{product.product_brand}}<i class="right">X</i></span>
-        <p>{{product.product_description}}<p>
-    </div>
-    <div class="card-action">
-        <a>View Supplier</a>
-    </div>
-    </div>
+    <div class="row">
+		{% for product in products %}    
+        <div class="col l3 m6 s12">
+            <div class="card sticky-action">
+                <div class="card-image">
+                    <img src="{{product.product_img}}" alt="Image of {{product.product_name}}"><a class="btn blue btn-floating halfway-fab pulse activator material-icons">...</a>
+                </div>
+                <div class="card-content">
+                    <strong>{{product.product_brand}}<br>
+                    {{product.product_name}}</strong><br>
+                    Entry date: {{product.product_date}}<br>
+                    Category: 	{{product.category_name}}
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title">{{product.product_name}}<br>{{product.product_brand}}<i class="right">X</i></span>
+                    <p>{{product.product_description}}<p>
+                </div>
+                <div class="card-action">
+                    <a>View Supplier</a>
+                </div>
+            </div>
+        </div>
 		{% endfor %}
-</div>
-
-    <div class="row s12">
-	<ul class="collapsible" data-collapsible="accordion">
-		{% for product in products %}
-		<li>
-			<div class="collapsible-header">
-				<div class="col s12">
-					<i class="material-icons">expand_more</i>
-					
-				</div>
-			</div> 
-			<div class="collapsible-body">
-				<span>
-                    <p><strong>{{product.product_brand}}</strong> - 
-                    {{product.product_name}}</p><br>
-                    <p><strong>Entry date: </strong> {{product.entry_date}}</p><br>
-                    <br>
-                    <p>{{product.product_description}}</p><br>
-                    <br>
-
-                    </span>
-			</div>
-		</li>
-		{% endfor %}
-	</ul>
+        </div>
     </div>
 	{% endblock %}
