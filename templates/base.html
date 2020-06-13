@@ -20,12 +20,19 @@
 				href="{{url_for('get_products')}}"><img src="../static/img/FFH_logo_bg_ccf.gif" alt="Logo" class="img-fluid vert-middle"></a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>					
                 <ul class="right hide-on-med-and-down">
-						<li> <a href="{{url_for('get_products')}}">HOME</a> </li>
-						<li> <a href="{{url_for('add_product')}}">ADD PRODUCT</a> </li>
-						<li> <a href="{{url_for('edit_products')}}">EDIT PRODUCT</a> </li>
-						<li> <a href="{{url_for('get_categories')}}">ADMIN</a> </li>
-						<li> <a href="#">ABOUT</a> </li>
-					</ul>
+					<li> <a href="{{url_for('get_products')}}">HOME</a> </li>
+					<li> <a href="{{url_for('add_product')}}">ADD PRODUCT</a> </li>
+					<li> <a href="{{url_for('edit_products')}}">EDIT PRODUCT</a> </li>
+					<li> <a href="{{url_for('get_categories')}}">ADMIN</a> </li>
+					<li> <a href="#">ABOUT</a> </li>
+				</ul>
+                <ul class="side-nav" id="mobile-demo">
+	                <li> <a href="{{url_for('get_products')}}">HOME</a> </li>
+					<li> <a href="{{url_for('add_product')}}">ADD PRODUCT</a> </li>
+					<li> <a href="{{url_for('edit_products')}}">EDIT PRODUCT</a> </li>
+					<li> <a href="{{url_for('get_categories')}}">ADMIN</a> </li>
+					<li> <a href="#">ABOUT</a> </li>
+				</ul>
 		</div>
 	</nav>
 	<div class="jumbotron-fluid">
@@ -55,6 +62,7 @@
         $(".dropdown-button").dropdown();
         $(".collapsible").collapsible();
         $("select").material_select();
+        $(".button-collapse").sideNav();
       });
 
       $(".datepicker").pickadate({
