@@ -2,14 +2,14 @@
 {% block content %}
 
 <div class="row">
-
 	<h3>Edit Product</h3>
 </div>
 <div class="row">
 	<form action="{{ url_for('update_product', product_id=product._id) }}" method="POST" class="col s12">
 		<div class="row">
 			<div class="input-field col s12">
-				<select id="category" name="category_name">
+			<i class="material-icons prefix">view_list</i>
+			<select id="category" name="category_name">
             <option value="" disabled selected>Choose Category</option>
             {% for cat in categories %}
                 {% if cat.category_name == product.category_name %}
@@ -24,37 +24,46 @@
 		</div>
 		<div class="row">
 			<div class="input-field col s12">
+            	<i class="material-icons prefix">edit</i>
 				<input id="product_name" name="product_name" type="text" class="validate" value="{{product.product_name}}">
 				<label for="icon_prefix">Product Name</label>
 			</div>
 		</div>
 		<div class="row">
 			<div class="input-field col s12">
+        		<i class="material-icons prefix">edit</i>
 				<input id="product_brand" name="product_brand" type="text" class="validate" value="{{product.product_brand}}">
 				<label for="icon_prefix">Product Brand</label>
 			</div>
 		</div>
 		<div class="row">
 			<div class="input-field col s12">
-				<textarea
-            name="product_description"
-            id="product_description"
-            class="materialize-textarea">{{product.product_description}}</textarea>
+    		<i class="material-icons prefix">short_text</i>
+				<textarea name="product_description" id="product_description" class="materialize-textarea">{{product.product_description}}</textarea>
 				<label for="icon_telephone">Product Description</label>
 			</div>
 		</div>
 		<div class="row">
 			<div class="input-field col s12">
+        		<i class="material-icons prefix">euro</i>
 				<input id="product_price" name="product_price" type="text" class="validate" value="{{product.product_price}}">
 				<label for="icon_prefix">Product Price</label>
 			</div>
 		</div>
 		<div class="row">
 			<div class="input-field col s12">
+        		<i class="material-icons prefix">map</i>
 				<input id="origin_name" name="origin_name" type="text" class="validate" value="{{product.origin_name}}">
 				<label for="icon_prefix">Country of Origin</label>
 			</div>
 		</div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">my_location</i>
+                <input id="supplier_name" name="supplier_name" type="text" class="validate" value="{{product.supplier_name}}">
+                <label for="icon_prefix">Name of the Supplier where this product was found</label>
+            </div>
+        </div>
 		<div class="row">
 			<div class="switch">
 				<label>
@@ -76,13 +85,5 @@
 		</div>
 	</form>
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-        entry_date = Date.parse('{{product.entry_date}}');
-        $('#entry_date').pickadate('picker').set('select', entry_date, { format: 'dd/mm/yyyy' }).trigger('change');
-    });
-</script>
 
 {% endblock %}
