@@ -10,9 +10,9 @@
 		<div class="collapsible-header">
 			<div class="product_header col s3">
 				<a href="{{url_for('delete_category', category_id=category._id)}}"
-					class="waves-effect waves-light btn">Delete</a>
+					class="waves-effect waves-light btn red lighten-3">Delete</a>
 				<a href="{{url_for('edit_category', category_id=category._id)}}"
-					class="waves-effect waves-light btn blue">Edit</a>
+					class="waves-effect waves-light btn lime darken-2">Edit</a>
 				<strong>{{category.category_name}}</strong>
 			</div>
 		</div>
@@ -20,7 +20,7 @@
 	{% endfor %}
 </ul>
 <div class="row">
-	<a href="{{url_for('add_category')}}" class="waves-effect waves-light btn">
+	<a href="{{url_for('add_category')}}" class="waves-effect waves-light btn lime darken-2">
 		<i class="material-icons right">playlist_add</i> Add Category</a>
 </div>
 {% endblock %}
