@@ -7,7 +7,7 @@
         <form action="{{ url_for('get_filtered') }}" method="POST" class="col s12">
             <div class="row">
                 <div class="input-field col s12">
-                    <select  id="country" name="country">
+                    <select  id="country" name="country_name">
                         <option value="" disabled selected>Country of origin</option>
                         {% for country in origin %}
                         <option value="{{country.origin_name}}" data-icon="{{country.origin_img}}" class="left circle">{{country.origin_name}}</option>
@@ -16,7 +16,7 @@
                     <label>Select country of origin</label>
                 </div>
                 <div class="input-field col s12">
-                    <select id="category" name="category">
+                    <select id="category" name="category_name">
                     <option value="" disabled selected>Category</option>
                         {% for cat in categories %}
                             <option value="{{cat.category_name}}">{{cat.category_name}}</option>
