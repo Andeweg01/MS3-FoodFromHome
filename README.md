@@ -9,12 +9,12 @@ In Ireland it is not easy to find the products from your home country. But they 
 Starting with five countries of origin (The Netherlands, Belgium, France, Germany and Spain), the site can be easily extended to more countries of origin. And also, starting with Ireland as the country where the food should be sold, this also can be extended to many more countries of course.
 
 ## UX
-The website has a homepage that starts with the full list of products from the database. The selection and sorting options are self explanatory: country of origin, sorting by name, brand, category, location, the entry date and supplier. The simple navigation provides an about page, explaining the purpose of this site and the link to the page for adding products. Admin access is open since the site is for educational purposes only and provides updating and adding categories to the database (CRUD).
+The website has a homepage that starts with the full list of products from the database. The selection options are self explanatory: country of origin, sorting by category. The simple navigation provides an about page, explaining the purpose of this site, the link to the page for adding products and a link to the page for editing products. Admin access needs no authentification since the site is for educational purposes only and provides updating and adding categories to the database (CRUD).
 
 ## USER STORIES
-A Dutch student looking for Calve peanutbutter searches for category food on the origin-page The Netherlands and sorts on brand. The product Calve pindakaas is found and with a click on the product name the accordion unfolds the product with name and location of the supplier and location marker on a Google maps map. Also the entry date gives an indication of how likely it is the product is still to be found there.
+A Dutch student looking for Calve peanutbutter searches in category food after selecting origin The Netherlands. The product card with basic information for Calve pindakaas is found and with a click on the plus-icon more information about the product is given. The name of the supplier is always visible. The entry date gives an indication of how likely it is the product is still to be found there.
 
-A Dutch resident of Cork city found that a Polish shop sells Lays Paprika crisps (Walkers in Ireland, but paprika isn't a flavour sold in the republic). He goes onto FoodFromHome and adds the product with the details of the shop under the category Snacks. When entering the details he leaves a password for the entry, so he can later identify and delete the product when he no longer finds his favourite crisps in this particular shop.
+A Dutch resident of Cork city found that a Polish shop sells Lays Paprika crisps (Walkers in Ireland, but paprika isn't a flavour sold in the republic). He goes onto FoodFromHome and adds the product with the details of the shop under the category Snacks. When entering the details he leaves a password for the entry, so he can later authenticate, edit or delete the product when he no longer finds his favourite crisps in this particular shop.
 
 An Irish woman living in Longford has lived in Amsterdam for 15 years and has gotten very used to Dutch foods and drinks. But also Belgian beers were a very common product in Amsterdam. To bring back good memories and enjoy the unique taste of a nice Belgian beer she can go to FoodFromHome and select origin Belgian and select category Beverages. There she finds a nice selection. It will take a bit of driving to go to the supplier, but the experience is worth it. 
 
@@ -29,13 +29,15 @@ The website will be responsive, using the Bootstrap and Materialize css framewor
 img...:
 
 ## DESIGN CHOICES:
-The logo is a simple shape with rounded and slightly slanted corners in a soft green with in it the initials of FoodFromHom in dark blue for contrast. The full name beside it. All text is in type Lora which is used throughout the site. A stylish serif, easy to read, pretty to look at.
+The logo is a simple shape with rounded and slightly slanted corners in a lime green with in it the initials of FoodFromHome in dark blue for contrast. The full name beside it. All text in the logo is in type Lora which is used throughout the site for text in serif. A stylish serif, easy to read, pretty to look at.
 
-The chosen font Lora is taken from Google Fonts (https://fonts.google.com/) and the other, Noto Sans is a font that became a web standard recently (used in Bootstrap and Materialize). Noto Sans, a neat sans-serif type in the same style as Droid and Roboto, optimized for readability on small devices and designed to have full Unicode support in multiple languages.
-
-Lora is a  well balanced comtemporary serif that suits the style I was looking for to contrast the sans-serif Noto Sans and give the site a friendly look and link to food as a feel-good product. This font is provided by the Google Fonts API.
+The chosen font Lora is taken from Google Fonts (https://fonts.google.com/) and the other, Roboto is a font that is the standard sans-serif in Materialize framework.
 
 The main image is a stock photo bought (free in a trial period) from Adobe Stock. It shows a multicultural couple enjoying walking on a market. The asian looking girl pointing at something could be interpreted as someone finding that product she used to enjoy back home. By using a photo not necessarily linked to Ireland will make it easier in the future to expand to other markets.
+
+The images used for the products are also stock photos, bought from Adobe Stock. I considered using product photos, but they are almost without exception under copyright. This would be too risky, would the site go public.
+
+Initially I set up the products in accordions to be folded out to view the product. However, using the cards from Materialize is a user friendly option where the products are more easily found and it makes the site look more appealing.
 
 ### The colours:
 The light purple and dark blue give a good contrast and are soft and friendly. The site is providing a service, not selling goods. So without being pushy with screaming colours it should be a pleasant expierence for the user. The navigation on mobile sizes uses transparancy to visually  'stay in touch' with the main page of the site.
@@ -45,39 +47,34 @@ The colours used are:
 * Dark blue: 333399
 
 ## FEATURES
-####Existing features:
+#### Existing features:
 
 ##### Navbar:
 Provides the logo, and links to the 'about', 'add product', 'edit product', 'administrator' and 'contact' pages. On small screens the navigation collapses into a hamburger menu (Materialize).
 
 ##### Selection options:
-Searching a database for products originating from a selection of countries, presented as the flags and initials of the countries, and known to be all time favourites and sold within the republic of Ierland. Click the flag to select country of origin.
-Select categories 'beverages', 'food', 'health', 'ingredienst', 'snacks' and 'sweets'.
-Sort the selected by 'brand', 'name', 'supplier', 'location' and 'entry date'.
+Searching a database for products originating from a selection of countries, presented in a collapsible dropdown with text and the flags of the countries, and known to be all time favourites and sold within the republic of Ierland. The second dropdown selects categories 'beverages', 'food', 'health', 'ingredienst', 'snacks' and 'sweets'.
 
 ##### Product presentation:
-The results are shown on the same page by unfolding the accordion with products. The product is shown with name, brand, an image of the product, a description and the found supplier, with address, location on GoogleMaps (coordinates will be entered by the administrator to avoid mistakes) and the date of entry. Chances of finding the product are obviously better with recent additions.
+The results are shown on the same page as basic cards with category image, product name, brand, and entry date. The bottom of the card shows the supplier and is always visible, also after clicking the plus-icon to read more: description, price and a line saying 'We like this in <country>.
 
 ##### About:
 A short description of the purpose and setup of this site and of the developer.
 
 ##### Add product:
-Users can enter products they found with suppliers in Ireland within the available categories. By entering a personal code users can also edit their entries afterwards.
+Users can enter products they found with suppliers in Ireland within the available categories. By entering a personal code users can also edit their entries afterwards. After adding the product, the page redirects to 'add supplier' if there's a new supplier to be added.
 
 ##### Edit product:
-Users can edit the products they added to the database, but only by using the provided user_code.
+Users can edit the products they added to the database, as a later addition only by using the provided user_code.
 
 ##### Administrator:
-The administrator can add and edit categories if needed and can add the coordinates for GoogleMaps.
-
-##### Contact:
-A simple email form for users to leave comments, suggestions or ask questions.
+The administrator can add and edit categories if needed, as a later addition only using his personal credentials.
 
 
 ## FEATURES LEFT TO IMPLEMENT
-At a later stage the Google Maps functionality can be extended to search products on location and proximity.
+At a later stage Google Maps with markers for the supppliers can be added.
 More categories and countries of origin can be added when the basic site proves to be a success.
-The administrator section will need authentication to be accessed by the administrator only.
+The administrator section and editing by users will need authentication to be accessed by the administrator and appropriate users only.
 
 
 ## TECHNOLOGIES USED
