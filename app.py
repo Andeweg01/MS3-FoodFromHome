@@ -31,7 +31,7 @@ def get_filtered():
     if request.method == "POST":
         product_category = request.form.get("category_name")
         if not product_category == None:
-            filters["category"] = product_category
+            filters["cat"] = product_category
 
         product_origin = request.form.get("origin_name")
         if not product_origin == None:

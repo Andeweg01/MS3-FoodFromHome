@@ -2,36 +2,31 @@
 {% block content %}
 <p class="center-align">Browse all products or filter on what country the product you're looking for is from or where it is loved,<br>
 	  select a category and find your supplier in Ireland!</p>
-<div class="row s12">
-	<form action="{{ url_for('get_filtered') }}" method="POST" class="col s12">
-        <div class="row">
-            <div class="input-field col l3 m6 s12">
+<div class="row">
+	<form action="{{ url_for('get_filtered') }}" method="POST">
+            <div class="input-field col l3 m3 s6">
                 <select class="icons">
                     <option value="" disabled selected>Country of origin</option>
-                    <option value="" data-icon="../static/img/flag-netherlands_-1.png" class="left circle">The Netherlands</option>
-                    <option value="" data-icon="../static/img/flag-belgium_-1.png" class="left circle">Belgium</option>
-                    <option value="" data-icon="../static/img/flag-france_-1.png" class="left circle">France</option>
-                    <option value="" data-icon="../static/img/flag-germany_-1.png" class="left circle">Germany</option>
-                    <option value="" data-icon="../static/img/flag-spain_-1.png" class="left circle">Spain</option>
+                    <option value="{{origin_name}}" data-icon="../static/img/flag-netherlands_-1.png" class="left circle">The Netherlands</option>
+                    <option value="{{origin_name}}" data-icon="../static/img/flag-belgium_-1.png" class="left circle">Belgium</option>
+                    <option value="{{origin_name}}" data-icon="../static/img/flag-france_-1.png" class="left circle">France</option>
+                    <option value="{{origin_name}}" data-icon="../static/img/flag-germany_-1.png" class="left circle">Germany</option>
+                    <option value="{{origin_name}}" data-icon="../static/img/flag-spain_-1.png" class="left circle">Spain</option>
                 </select>
                 <label>Select country of origin</label>
+           </div>
+            <div class="input-field col l3 m3 s6">
+                <select id="category" name="category_name">
+                <option value="" disabled selected>Category</option>
+                    {% for cat in categories %}
+                        <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+                    {% endfor %}
+                </select>
+                <label>Select a category</label>
             </div>
-            <div class="row">
-                <div class="input-field col l3 m6 s12">
-                    <select id="category" name="category_name">
-                    <option value="" disabled selected>Category</option>
-                        {% for cat in categories %}
-                    <option value="{{cat.category_name}}">{{cat.category_name}}</option>
-                        {% endfor %}
-                    </select>
-                    <label>Select a category</label>
-                </div>
-            </div>
-            <div class="row">
-                <button class="btn waves-effect waves-light lime darken-2 center-align" type="submit" name="action">Filter
-                <i class="material-icons right">playlist_add_check</i>
-                </button></div>
-            </div>
+        <button class="btn waves-effect waves-light lime darken-2 valign-wrapper" type="submit" name="action">Filter
+        <i class="material-icons right">playlist_add_check</i>
+        </button>
     </form>
 </div>
 
@@ -50,7 +45,7 @@
                 <div class="card-content">
                     <strong>{{product.product_brand}}<br>
                     {{product.product_name}}</strong><br>
-                    Entry date: {{product.entry_date}}<br>
+                    Entry: {{product.entry_date}}<br>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title">{{product.product_name}}<br>
