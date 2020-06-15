@@ -20,7 +20,7 @@ def get_products():
     products=mongo.db.product.find())
 
 
-@app.route('/get_filtered')
+@app.route('/get_filtered', methods=["GET", "POST"])
 def get_filtered():
     products = mongo.db.product.find()
     category = mongo.db.categories.find()
@@ -29,11 +29,11 @@ def get_filtered():
     filtered_results = mongo.db.product.find(filters)
 
     if request.method == "POST":
-        product_category = request.form.get("category")
+        product_category = request.form.get("category_name")
         if product_category:
             filters["category"] = product_category
 
-        product_origin = request.form.get("country")
+        product_origin = request.form.get("country_name")
         if product_origin:
             filters["country"] = product_origin
 

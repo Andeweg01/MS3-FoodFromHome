@@ -26,16 +26,17 @@ def get_filtered():
     category=mongo.db.categories.find()
     country=mongo.db.origin.find()
     filters = {}
-    filtered_results = mongo.db.product.find(filters)
 
     if request.method == "POST":
         product_category = request.form.get("category_name")
         if not product_category == None:
             filters["category"] = product_category
+            filtered_results = mongo.db.product.find(filters)
 
         product_origin = request.form.get("origin_name")
         if not product_origin == None:
             filters["country"] = product_origin
+            filtered_results = mongo.db.product.find(filters)
 
         return render_template("products.html", 
         product=filtered_results, categories=category, origin=country)
