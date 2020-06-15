@@ -22,9 +22,9 @@ def get_products():
 
 @app.route('/get_filtered', methods=["GET", "POST"])
 def get_filtered():
-    products = mongo.db.product.find()
     category = mongo.db.categories.find()
     country = mongo.db.origin.find()
+    products = mongo.db.product.find()
     filters = {}
     filtered_results = mongo.db.product.find(filters)
 
@@ -36,7 +36,6 @@ def get_filtered():
         product_origin = request.form.get("country_name")
         if product_origin:
             filters["country"] = product_origin
-
         return render_template("products.html",
                                product=filtered_results,
                                categories=category,
@@ -44,7 +43,6 @@ def get_filtered():
     else:
         return render_template("products.html",
                                products=mongo.db.product.find())
-
 
 @app.route('/edit_products')
 def edit_products():
