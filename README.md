@@ -24,7 +24,7 @@ A Spanish language student found her favourite Sangria in a Cork shop and had ad
 
 ## WIREFRAME / DESIGN
 The wireframe is made in Adobe XD which is also the design. With the principle of mobile first in mind, the full wireframe is built in mobile orientation and dimensions (375 x 812 px - iPhone X/XS/11 Pro). For design purposes, the home page is also designed in web dimensions 1920 x 1080 px).
-The website will be responsive, using the Bootstrap and Materialize css frameworks.
+The website will be responsive, using the Materialize css framework.
 
 img...:
 
