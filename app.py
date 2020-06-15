@@ -16,6 +16,10 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_products')
 def get_products():
+    category = mongo.db.categories.find()
+    country = mongo.db.origin.find()
+    products = mongo.db.product.find()
+
     return render_template("products.html", 
     products=mongo.db.product.find())
 
