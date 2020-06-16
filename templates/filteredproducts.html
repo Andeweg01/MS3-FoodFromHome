@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block filtering %}
 
-<p class="center-align">Browse all products or filter on what country the product you're looking for is from or where it is loved,<br>
+<p class="center-align">Filter on the country where your product is loved,<br>
 	  select a category and find your supplier in Ireland!</p><br>
         <div class="row">
         <form action="{{ url_for('get_filtered') }}" method="POST" class="col s12">

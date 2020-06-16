@@ -16,34 +16,39 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_products')
 def get_products():
+    category = mongo.db.categories.find()
+    country = mongo.db.origin.find()
+    products = mongo.db.product.find()
+
     return render_template("products.html", 
-    products=mongo.db.product.find())
+                            products=products,
+                            categories=category,
+                            origin=country)
 
 
-@app.route('/get_filtered', methods=["POST"])
+@app.route('/get_filtered', methods=["GET", "POST"])
 def get_filtered():
-    products=mongo.db.product.find()
-    category=mongo.db.categories.find()
-    country=mongo.db.origin.find()
+    category = mongo.db.categories.find()
+    country = mongo.db.origin.find()
+    products = mongo.db.product.find()
     filters = {}
+    filtered_results = mongo.db.product.find(filters)
 
     if request.method == "POST":
         product_category = request.form.get("category_name")
-        if not product_category == None:
+        if product_category:
             filters["category"] = product_category
-            filtered_results = mongo.db.product.find(filters)
 
         product_origin = request.form.get("origin_name")
-        if not product_origin == None:
+        if product_origin:
             filters["country"] = product_origin
-            filtered_results = mongo.db.product.find(filters)
-
-        return render_template("products.html", 
-        product=filtered_results, categories=category, origin=country)
+        return render_template("filteredproducts.html",
+                               products=filtered_results,
+                               categories=category,
+                               origin=country)
     else:
         return render_template("products.html",
-        products=mongo.db.product.find())
-
+                               products=mongo.db.product.find())
 
 @app.route('/edit_products')
 def edit_products():
