@@ -31,7 +31,7 @@ img...:
 ## DESIGN CHOICES:
 The logo is a simple shape with rounded and slightly slanted corners in a lime green with in it the initials of FoodFromHome in dark blue for contrast. The full name beside it. All text in the logo is in type Lora which is used throughout the site for text in serif. A stylish serif, easy to read, pretty to look at.
 
-The chosen font Lora is taken from Google Fonts (https://fonts.google.com/) and the other, Roboto is a font that is the standard sans-serif in Materialize framework.
+The chosen font Lora is taken from Google Fonts (https://fonts.google.com/) and the other, Roboto is a font that is the standard sans-serif in the Materialize framework.
 
 The main image is a stock photo bought (free in a trial period) from Adobe Stock. It shows a multicultural couple enjoying walking on a market. The asian looking girl pointing at something could be interpreted as someone finding that product she used to enjoy back home. By using a photo not necessarily linked to Ireland will make it easier in the future to expand to other markets.
 
