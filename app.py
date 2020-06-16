@@ -39,10 +39,10 @@ def get_filtered():
         if product_category:
             filters["category"] = product_category
 
-        product_origin = request.form.get("country_name")
+        product_origin = request.form.get("origin_name")
         if product_origin:
             filters["country"] = product_origin
-        return render_template("products.html",
+        return render_template("filteredproducts.html",
                                products=filtered_results,
                                categories=category,
                                origin=country)
