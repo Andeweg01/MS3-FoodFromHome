@@ -73,19 +73,23 @@ The website is responsive, using the Materialize css framework.
 
 
 ## DESIGN CHOICES:
+
+<img src="https://github.com/Andeweg01/MS3-FoodFromHome/blob/master/static/img/FFH_logo.png?raw=true" style="margin: 0;">
+
+
 The logo is a simple shape with rounded corners and slightly slanted in a lime green with in it the initials of FoodFromHome 
 in dark blue for contrast. The full name beside it. All text in the logo is in type Lora which is used throughout the site 
 for text in serif. A stylish serif, easy to read, pretty to look at.
 
-This font type Lora comes from Google Fonts (https://fonts.google.com/) and the sans-serif, Roboto, is the standard 
-sans-serif in the Materialize framework.
+This font type Lora comes from [Google Fonts](https://fonts.google.com/) and the sans-serif, Roboto, is the standard 
+sans-serif in the [Materialize framework](https://materializecss.com).
 
-The main image is a stock photo bought (free in a trial period) from Adobe Stock. It shows a multicultural couple enjoying 
+The main image is a stock photo bought (free in a trial period) from [Adobe Stock](https://stock.adobe.com/ie). It shows a multicultural couple enjoying 
 walking on a market. The asian looking girl pointing at something could be interpreted as someone finding that product she 
 used to enjoy back home. By using a photo not necessarily linked to Ireland will make it easier in the future to expand to 
 other markets.
 
-The images used for the categories are also stock photos, bought from Adobe Stock. I considered using product photos, but 
+The images used for the categories are also stock photos, bought from [Adobe Stock](https://stock.adobe.com/ie). I considered using product photos, but 
 they are almost without exception under copyright. This would be too risky, would the site go live to the public.
 
 Initially I set up the products in accordions to be folded out to view the product. However, using the cards from Materialize 
@@ -94,61 +98,79 @@ is a user friendly option where the products are more easily found and it makes 
 
 ### The colours:
 The light purple and dark blue give a good contrast and are soft and friendly. The site is providing a service, not selling 
-goods. So without being pushy with screaming colours it should be a pleasant expierence for the user. The navigation on 
-mobile sizes uses transparancy to visually  'stay in touch' with the main page of the site.
+goods. So without being pushy with screaming colours it should be a pleasant expierence for the user. The red (standard from the
+Materialize framework) provides a nice balance with the girl's red scarf in the main picture.
 
 The colours used are: 
-* Light purple: CCCCFF
-* Dark blue: 333399
+
+<img src="https://github.com/Andeweg01/MS3-FoodFromHome/blob/master/static/img/FFHcolours.png?raw=true" style="margin: 0;">
+
+
 
 ## FEATURES
 #### Existing features:
 
 ##### Navbar:
-Provides the logo, and links to the 'about', 'add product', 'edit product', 'administrator' and 'contact' pages. 
+Provides the logo, and links to the 'about', 'add product', 'edit product' and 'administrator' pages. 
 On small screens the navigation collapses into a hamburger menu (Materialize).
 
 ##### Selection options:
-Searching a database for products originating from a selection of countries, presented in a collapsible dropdown 
-with text and the flags of the countries, and known to be all time favourites and sold within the republic of Ierland. 
-The second dropdown selects categories 'beverages', 'food', 'health', 'ingredienst', 'snacks' and 'sweets'.
+Two filters, providing the five countries of origin (The Netherlands, Belgium, France, Germany and Spain)
+and the six existing categories (beverages, food, health, ingredienst, snacks and sweets.
+The pages 'Add Product', 'Edit Product' and 'Administrator' provide CRUD (create, read, update and delete 
+functionality) on the database for products, suppliers, countries and categories.
 
 ##### Product presentation:
-The results are shown on the same page as basic cards with category image, product name, brand, and entry date. 
+The results are shown on the home page as Materialize cards with category image, product name, brand, and entry date. 
 The bottom of the card shows the supplier and is always visible, also after clicking the plus-icon to read more: 
-description, price and a line saying 'We like this in <country>.
+description, price and a line saying 'We like this in 'country'.
 
 ##### About:
 A short description of the purpose and setup of this site and of the developer.
 
 ##### Add product:
 Users can enter products they found with suppliers in Ireland within the available categories. By entering a personal 
-code users can also edit their entries afterwards. After adding the product, the page redirects to 'add supplier' 
-if there's a new supplier to be added.
+code users can also edit their entries afterwards. Authentication is a future feature. 
+After adding the product, the page redirects to 'add supplier'. The details for the Supplier name given for the product
+will be stored. A future feature will be a view of the supplier details with Google Maps functionality.
 
 ##### Edit product:
-Users can edit the products they added to the database, as a later addition only by using the provided user_code.
+Users can edit the products they added to the database. A future feature will be authentication with the personal user_code.
 
 ##### Administrator:
-The administrator can add and edit categories if needed, as a later addition only using his personal credentials.
+The administrator can add and edit categories if needed. A future feature will be authentication with the personal admin_code.
 
 
 ## FEATURES LEFT TO IMPLEMENT
-At a later stage Google Maps with markers for the supppliers can be added.
-More categories and countries of origin can be added when the basic site proves to be a success.
-The administrator section and editing by users will need authentication to be accessed by the administrator and 
+In the process many unexpected issues arose (to be described later) and took more time than I had wished. 
+Therefor quite a few wanted features are still missing:
+1. Google Maps with markers for the supppliers.
+2. Link to the supplier page, presenting supplier details and Google Maps functionality.
+3. More categories and countries of origin can be added when the basic site proves successful.
+4. The administrator section and editing by users will need authentication to be accessed by the administrator and 
 appropriate users only.
+5. The proper category image has to be added by the administrator in the MongoDB database manually. In future this will
+be done when the user adds the product.
+6. Form validation is not working properly. The Materialize validation options that should be working actually don't. 
+Where on the first filters (origin and category) you can not filter unless a country of origin is selected, in the other forms
+the functionality simply does not do what it's supposed to do. Therefor, unfortunately also, a future feature.
 
 
 ## TECHNOLOGIES USED
-The navbar and accordion bars css base are taken from the Materialize framework (http://materializecss.com). 
-Bootstrap (http://getbootstrap.com) is used for a lot of the HTML/CSS structure and customised for FoodFromHome.
-Flask (https://palletsprojects.com/p/flask/) is used for the Jinja template structure and routing.
-An extra library is used for handling the MongoDB database with Python: Python Mongo (pyMongo) 
-(https://pymongo.readthedocs.io/en/stable/).
-JavaScript (https://developer.mozilla.org/en-US/docs/Web/JavaScript) is used to work with the GoogleMaps API 
-returning the locations of suppliers as a marker on a map.
-JQuery ?
+
+### Front-end
+* [HTML5](https://en.wikipedia.org/wiki/HTML5) for the HTML structure.
+* [CSS3](https://www.w3.org/Style/CSS/Overview.en.html) for styling and editing existing Materialize css-code
+* [Materialize framework](http://materializecss.com) framework version 0.100.2 is used for the navbar, accordions, cards, forms and the majority of css code.  
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) version 3.2.1 is used to work with 
+* [JQuery](https://jquery.com) which manipulates the DOM
+
+### Back-end
+* [Python](https://www.python.org/) (version 3.8.2) for running the python app
+* [Flask](https://palletsprojects.com/p/flask/) (version 1.1.2) is used for the Jinja template structure and routing.
+* [Python Mongo (pyMongo)](https://pymongo.readthedocs.io/en/stable/) is used for handling the MongoDB database with Python
+* [Werkzeug](https://pypi.org/project/Werkzeug) version 1.0.1 a library within Flask with utilities for debugging, testing, etc.
+
 
 ## TESTING
 
