@@ -102,6 +102,8 @@ they are almost without exception under copyright. This would be too risky, woul
 Initially I set up the products in accordions to be folded out to view the product. However, using the cards from Materialize 
 is a user friendly option where the products are more easily found and it makes the site look more appealing.
 
+### The grid
+I used the standard grid Materialize uses: small, medium, large viewports. This shows 4, 2 or 1 column of product cards on the page.
 
 ### The colours:
 The light purple and dark blue give a good contrast and are soft and friendly. The site is providing a service, not selling 
@@ -207,41 +209,118 @@ the functionality simply does not do what it's supposed to do. Therefor, unfortu
 
 ## TESTING
 Throughout the project some of the main methods for testing were
+* before entering the Python development stage (design only), using Adobe Dreamweaver for it's live design functionality and very handy suggestions while designing
 * the inspect functionality in Google Chrome for code errors
 * running the Python app on GitPod and viewing the debugging in terminal
-* before entering the Python stage (design) using Adobe Dreamweaver for it's live design functionality and very handy suggestions while designing
 * deploying on Heroku to see how everything functions when deployed
 
+Testing is done on Windows10, iPhone 7+, Samsung tablet 10", Android Phone.
+
+The test were manual, testing the different filters and CRUD functionality and responsiveness.
+
+### styling
+The styling is responsive on all devices and sizes. Colours look good and images are as they're intended.
+
+Found issues:
+1. There is a strange problem in the footer on the filtered pages and about page which I haven't been able to figure out. The width does not fill the screen.
+2. The + icon for more info on the products disappears when using the size class medium (Materialize). When not using the medium class the alignment of 
+the cards goes overboard because of different heights.
+
+
+### filtering
+The filtering of countries and categories works well on all devices and browsers.
+
+### editing products
+The editing of products and categories works identically on all devices and browsers and edits the changes from the form.
+However:
+
+Found issues:
+1. The manually added category images are deleted when updating the product details.
+
+### adding products / suppliers / categories
+Adding products, suppliers and categories works on all devices and in all browsers and the redirect to 
+adding supplier after submitting also works.
+No issues found.
+
+### deleting products / categories
+Deleting the products or categories works well on all devices and in all browsers.
+No issues found.
+
+### testing Python
+It proved to be very usefull to work with print functions in the filtering route. In the Python interpreter (terminal)
+it was easier to spot whether or not data was being fetched or filtered.
+The error pages when Python fails to run gives clues about where to search for failing code.
+The preview from GitPod CL was well used throughout the process.
+
+### testing code
+The Python code was checked with [Pep8](http://pep8online.com) and small issues were caught there.
+The HTML and CSS was validated with the [W3 validator](https://validator.w3.org/) and with some minor changes no errors were found.
 
 
 ## DEPLOYMENT
-In the design phase [Adobe Dreamweaver](https://www.adobe.com/ie/products/dreamweaver.html) was used to speed up the design process and make good use of the handy 
-live view. The HTML/CSS design during this process was also tested on a live server (Strato - domain Tradtracker.com). 
-In the process I found an issue with Bootstrap and Materialize using the same names in the CSS code for navigation 
-elements. Inspecting in Google Chrome on the live server proved to be very usefull to find the issues and create 
-workarounds in my own code.
+In the design phase [Adobe Dreamweaver](https://www.adobe.com/ie/products/dreamweaver.html) was used to speed up the 
+design process and make good use of the handy live view. 
+The HTML/CSS design during this process was also deployed and tested on a live server (Strato - domain Tradtracker.com). 
 
-The GitPod IDE is used for testing in the required environment for the CodeInstitute courses. The HTML/CSS files 
+In the process I found issues with combining Bootstrap and Materialize. In their css they use the same naming in the CSS 
+code for several navigation elements. Inspecting with Google Chrome on the live server proved to be very usefull to find 
+the issues and create workarounds in my own code. After finding more and more issues that seemed impossible to overcome I decided
+to stop using Bootstrap en continue with Materialize only.
+
+I used the GitPod IDE for testing in the required environment for the CodeInstitute courses. The HTML/CSS files 
 are pushed to the GitHub repository to handle the version control.
 
 The Flask/Python part of the project is built within the GitPod IDE and once linked to the MongoDB database, 
 deployment is done on Heroku.
 
-This section should describe the process you went through to deploy the project to a hosting platform 
-(e.g. GitHub Pages or Heroku).
+### The process:
+* In GitHub a repository with full template by the CodeInstitute is generated for use with GitPod.
+* In GitPod a site structure is built with a static folder, as required for Flask project, a templates folder and
+* files to load and set the libraries, environment variables, configuration files:
+   dnspython==1.16.0  
+   Flask==1.1.2  
+   Flask-PyMongo==2.3.0  
+   heroku==0.1.4  
+   pymongo==3.10.1  
+   python-dateutil==1.5  
+   Werkzeug==1.0.1  
 
-In particular, you should provide all details of the differences between the deployed version and the 
-development version, if any, including:
+   These are stored in the file requirements.txt by using the command: `pip3 freeze --local > requirements.txt`
+   So these requirements can easily be loaded again by typing `pip3 install -r requirements.txt`
+* In Heroku the app has to be created to be able to run later. 
+* It's important to have the variables 'IP' and 'HOST' set and also the Mongo URI key to be able to use the database with Heroku
+* In GitPod an env.py file is created to store that same Mongo URI variable. The env.py is stored in the .gitignore so that it doesn't push to the remote servers.
+* A Procfile is created to show that app.py will be the Python file to run and we're good to go. Type `echo web: python app.py > Procfile`
+* In GitPod login to Heroku by typing `heroku login` and pressing the spacebar. In the preview screen the login can be done.
+* In GitPod the remote app is selected by typing `heroku git:remote -a myappname`
+* The app has to start running on Heroku by typing `heroku ps:scale web=1`
+* The normal process to push files to remote server can be used: `git add .` and `git commit . -m "comments"` and then `git push heroku master` to push to the master branch of our Heroku app.
 
-Different values for environment variables (Heroku Config Vars)?
-Different configuration files?
-Separate git branch?
-In addition, if it is not obvious, you should also describe how to run your code locally.
+To run the app.py locally we have to run the Python server `python3 -m http.server` and run `python3 app.py`.
+You can now either open a browser or the preview in GitPod.
+
+
+## Issues in the process
+As mentioned before, the conflicts using both Materialize and Bootstrap caused me a lot of problems. 
+As I decided to go for Materialize, and based on recommendations in the course material, version 0.100.2 instead of the latest, I ran into more problems.
+Materialize seems to be not very well tested or ready for updated browsers. The issues I have not been able to solve are
+* The footer width on the filtered products page and the about page.
+* The button for more information in the product card that changes layer as the size for the cards is set.
+* The validation on forms that does not work in Chrome, and possibly other device/browser combinations.
+
+Only a few days before the submission date I found out that MDBootstrap would have been a very welcome alternative. But time wasn't on my side.
+Also the schema I initially made, turned out to be not the best choice. Since suppliers would have been quite unique per product, I could have included them
+in the product collection. This would have made it possible to easily create a view of the supplier with the product. Some changes in the add_products and add_supplier
+pages and code would have been enough to make that work.
 
 ## Credits
 #### Content
-The text for section Y was copied from the Wikipedia article Z
-Media
-The photos used in this site were obtained from ...
-Acknowledgements
-I received inspiration for this project from X
+The content of this site is my own. The products placed in the database are fictional since the site is for educational purposes only.
+The photographs are bought licenses from Adobe Stock.
+The logo is my own design.
+
+#### Support
+The Slack community has been helpful finding answers to many issues.
+StackOverflow is a lifesaver and teaches a lot about possibilities and limitations.
+The Tutor Support and Mentor from CodeInstitute was awesome. I couldn't have done it without them.
+A big thank you for CodeInstitute for their patience and support.
