@@ -2,8 +2,8 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from os import path 
-if path.exists("env.py"): 
+from os import path
+if path.exists("env.py"):
     import env
 
 app = Flask(__name__)
@@ -20,7 +20,7 @@ def get_products():
     country = mongo.db.origin.find()
     products = mongo.db.product.find()
 
-    return render_template("products.html", 
+    return render_template("products.html",
                             products=products,
                             categories=category,
                             origin=country)
@@ -32,25 +32,17 @@ def get_filtered():
     country = mongo.db.origin.find()
     products = mongo.db.product.find()
     filters = {}
-    # filtered_results = mongo.db.product.find(filters)
 
     if request.method == "POST":
-        print(request.form.get("category_name"))
-        print(request.form.get("country_name"))
         product_category = request.form.get("category_name")
-        print(product_category)
         if product_category:
             filters["category_name"] = product_category
-            print(filters)
             filtered_results = mongo.db.product.find(filters)
 
         product_origin = request.form.get("country_name")
-        print(product_origin)
         if product_origin:
             filters["origin_name"] = product_origin
-            print(filters)
             filtered_results = mongo.db.product.find(filters)
-            print(filtered_results)
         return render_template("filteredproducts.html",
                                products=filtered_results,
                                categories=category,
@@ -59,15 +51,16 @@ def get_filtered():
         return render_template("products.html",
                                products=mongo.db.product.find())
 
+
 @app.route('/edit_products')
 def edit_products():
-    return render_template("editproducts.html", 
+    return render_template("editproducts.html",
     products=mongo.db.product.find())
 
 
 @app.route('/add_product')
 def add_product():
-    return render_template("addproduct.html", 
+    return render_template("addproduct.html",
     categories=mongo.db.categories.find())
 
 
@@ -89,14 +82,14 @@ def insert_supplier():
 def edit_product(product_id):
     the_product = mongo.db.product.find_one({"_id": ObjectId(product_id)})
     all_categories = mongo.db.categories.find()
-    return render_template('editproduct.html', 
+    return render_template('editproduct.html',
         product=the_product, categories=all_categories)
 
 
 @app.route('/update_product/<product_id>', methods=['POST'])
 def update_product(product_id):
     products = mongo.db.product
-    products.update( {'_id': ObjectId(product_id)},
+    products.update({'_id': ObjectId(product_id)},
     {
         'category_name': request.form.get('category_name'),
         'product_name': request.form.get('product_name'),

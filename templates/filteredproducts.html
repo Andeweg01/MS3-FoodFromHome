@@ -3,40 +3,42 @@
 {% block content %}
 <div class="row">
 	<h3>Your Products</h3>
-    <form action="{{ url_for('get_products') }}" class="col s12">
-        <div class="row"><br>
-            <button class="btn waves-effect waves-light lime darken-2" type="submit" name="action">New filter
-            <i class="material-icons right">playlist_add_check</i>
-            </button>
-    </form>
 </div>
+<form action="{{ url_for('get_products') }}" class="col s12">
+	<div class="row"><br>
+		<button class="btn waves-effect waves-light lime darken-2" type="submit" name="action">New filter
+            <i class="material-icons right">playlist_add_check</i>
+        </button>
+</form>
 <div class="container">
-    <div class="row">
+	<div class="row">
 		{% for product in products %}
-        <div class="col l3 m6 s12">
-            <div class="card sticky-action">
-                <div class="card-image">
-                    <img src="{{product.product_img}}" alt="Image of {{product.category_name}}"><a class="btn blue btn-floating halfway-fab pulse activator material-icons">...</a>
-                    <span class="card-title"><h2>{{product.category_name}}</h2></span>
-                </div>
-                <div class="card-content">
-                    <strong>{{product.product_brand}}<br>
+		<div class="col l3 m6 s12">
+			<div class="card medium sticky-action">
+				<div class="card-image">
+					<img src="{{product.product_img}}" alt="Image of {{product.category_name}}"><a
+						class="btn blue btn-floating halfway-fab pulse activator material-icons">...</a>
+					<span class="card-title"><h2>{{product.category_name}}</h2></span>
+				</div>
+				<div class="card-content">
+					<strong>{{product.product_brand}}<br>
                     {{product.product_name}}</strong><br>
                     Entry: {{product.entry_date}}<br>
                 </div>
-                <div class="card-reveal">
-                    <span class="card-title">{{product.product_brand}}<br>
+					<div class="card-reveal">
+						<span class="card-title">{{product.product_brand}}<br>
                     {{product.product_name}}<i class="material-icons right">expand_more</i></span>
-                    <p>{{product.product_description}}<p>
-                    <p>Price: <strong>{{product.product_price}}</strong></p>
-                    <p>We like this in {{product.origin_name}}</strong></p>
-                </div>
-                <div class="card-action">
-                    <p>Found in <a>{{product.supplier_name}}</a></p>
-                </div>
-            </div>
-        </div>
+						<p>{{product.product_description}}<p>
+								<p>Price: <strong>{{product.product_price}}</strong></p>
+								<p>We like this in {{product.origin_name}}
+					</strong></p>
+				</div>
+				<div class="card-action">
+					<p>Found in <a>{{product.supplier_name}}</a></p>
+				</div>
+			</div>
+		</div>
 		{% endfor %}
-        </div>
-    </div>
+	</div>
+</div>
 {% endblock %}
