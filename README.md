@@ -1,5 +1,6 @@
 <img src="https://github.com/Andeweg01/MS3-FoodFromHome/blob/master/static/img/FFH_logo.png?raw=true" style="margin: 0;">
 
+
 ## Milestone Project 3 - CodeInstitute
 #### By Sascha Andeweg
 This site is developed as the [third Milestone Project](https://ms3-ffh.herokuapp.com/) for the [CodeInstitute](https://codeinstitute.net), 
@@ -18,6 +19,8 @@ Starting with five countries of origin (The Netherlands, Belgium, France, German
 easily extended to more countries of origin. And also, starting with Ireland as the country where the food should 
 be sold, this also can be extended to many more countries of course.
 
+
+
 ## UX
 The website has a homepage that starts with the full list of products from the database. The filter options 
 are self explanatory: country of origin and category. The simple navigation on top of the site provides an about page, 
@@ -26,6 +29,8 @@ products. Admin access needs no authentification since the site is for education
 creating, updating and deleting categories to the database (CRUD).
 Adding a product to the database redirects the user to the add supplier page. Suppliers cannot be added to
 the database without being linked to a product added.
+
+
 
 ## USER STORIES
 1. A Dutch student looking for Calve peanutbutter searches in category food after selecting origin The Netherlands. 
@@ -46,6 +51,8 @@ community in that part of the country can finally find their favourite sandwich 
 5. A Spanish language student found her favourite Sangria in a Cork shop and had added the product in the database a week 
 ago. However, the product seems to be a one off in the shop's stock and is no longer available. She goes to 
 FoodFromHome and using her personal code she can remove the product again.
+
+
 
 ## WIREFRAME / DESIGN
 The wireframe is made in Adobe XD which is also the design. With the principle of mobile first in mind, the full wireframe 
@@ -107,6 +114,24 @@ The colours used are:
 
 
 
+## THE DATABASE
+For the project a NoSQL database MongoDB is used. MongoDB is known for it's flexibility and having no rigid requirements for tables and rows.
+The project is suitable for this. However, initially I have set up the database in a slighly relational way, separating the suppliers from the products.
+My thought was that products could eventually have several suppliers and suppliers could have multiple products. Also the countries of origin would
+be the same for a large group of products and the same goes for the categories.
+
+Working with this structure I learned that binding or aggregating is not an easy thing when handling data on the website. I managed to get filters
+on categories and countries to work with products, but it was a very steep learning curve, costing a lot of time. Therefor, because of too much time spent
+on these issues, linking the supplier-view to the product cards and adding category images to the product card are future features.
+
+The database at the moment looks like this:
+
+<img src="https://github.com/Andeweg01/MS3-FoodFromHome/blob/master/static/img/MongoDB_FFH_Page_1.jpg?raw=true" style="margin: 0;">
+
+<img src="https://github.com/Andeweg01/MS3-FoodFromHome/blob/master/static/img/MongoDB_FFH_Page_2.jpg?raw=true" style="margin: 0;">
+
+
+
 ## FEATURES
 #### Existing features:
 
@@ -141,6 +166,7 @@ Users can edit the products they added to the database. A future feature will be
 The administrator can add and edit categories if needed. A future feature will be authentication with the personal admin_code.
 
 
+
 ## FEATURES LEFT TO IMPLEMENT
 In the process many unexpected issues arose (to be described later) and took more time than I had wished. 
 Therefor quite a few wanted features are still missing:
@@ -154,6 +180,7 @@ be done when the user adds the product.
 6. Form validation is not working properly. The Materialize validation options that should be working actually don't. 
 Where on the first filters (origin and category) you can not filter unless a country of origin is selected, in the other forms
 the functionality simply does not do what it's supposed to do. Therefor, unfortunately also, a future feature.
+
 
 
 ## TECHNOLOGIES USED
@@ -170,13 +197,25 @@ the functionality simply does not do what it's supposed to do. Therefor, unfortu
 * [Flask](https://palletsprojects.com/p/flask/) (version 1.1.2) is used for the Jinja template structure and routing.
 * [Python Mongo (pyMongo)](https://pymongo.readthedocs.io/en/stable/) is used for handling the MongoDB database with Python
 * [Werkzeug](https://pypi.org/project/Werkzeug) version 1.0.1 a library within Flask with utilities for debugging, testing, etc.
+* [MongoDB](https://www.mongodb.com/cloud/atlas) a cloud MongoDB service that runs the MondoDB NoSQL database for the site
+* [Jinja](https://palletsprojects.com/p/jinja) for templating
+* [GitHub](https://github.com) for version control and storing the repositories
+* [GitPod](https://www.gitpod.io) the online IDE for coding, testing and debugging
+* [Heroku](https://www.heroku.com) the cloud application platform used to deploy the Python application
+
 
 
 ## TESTING
+Throughout the project some of the main methods for testing were
+* the inspect functionality in Google Chrome for code errors
+* running the Python app on GitPod and viewing the debugging in terminal
+* before entering the Python stage (design) using Adobe Dreamweaver for it's live design functionality and very handy suggestions while designing
+* deploying on Heroku to see how everything functions when deployed
+
 
 
 ## DEPLOYMENT
-In the design phase Adobe Dreamweaver was used to speed up the design process and make good use of the handy 
+In the design phase [Adobe Dreamweaver](https://www.adobe.com/ie/products/dreamweaver.html) was used to speed up the design process and make good use of the handy 
 live view. The HTML/CSS design during this process was also tested on a live server (Strato - domain Tradtracker.com). 
 In the process I found an issue with Bootstrap and Materialize using the same names in the CSS code for navigation 
 elements. Inspecting in Google Chrome on the live server proved to be very usefull to find the issues and create 
