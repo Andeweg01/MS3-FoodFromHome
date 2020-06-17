@@ -13,17 +13,17 @@
 					class="waves-effect waves-light btn red lighten-3">Delete</a>
 				<a href="{{url_for('edit_product', product_id=product._id)}}"
 					class="waves-effect waves-light btn lime darken-2">Edit</a>
-				<strong>{{product.product_name}}</strong> - {{product.product_date}} - Category
+				<strong>{{product.product_brand}} {{product.product_name}}</strong> - Entry: {{product.entry_date}} - Category
 				{{product.category_name}}
 			</div>
 		</div>
 		<div class="collapsible-body">
 			<span>
-                    <h2><strong>{{product.product_brand}}</strong> - 
-                    {{product.product_name}}</h2><br>
-                    <p><strong>Entry date: </strong> {{product.entry_date}}</p><br>
-                    <p>{{product.product_description}}</p><br>
-                    </span>
+                <h3><strong>{{product.product_brand}} - 
+                {{product.product_name}}</strong></h3>
+                <p>Entry: {{product.entry_date}}</p>
+                <p>{{product.product_description}}</p>
+                </span>
 		</div>
 	</li>
 	{% endfor %}

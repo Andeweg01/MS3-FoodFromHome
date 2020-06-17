@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block filtering %}
 
-<p class="center-align">Filter on the country where your product is loved,<br>
+<p class="flow-text center-align">Filter on the country where your product is loved,<br>
 	  select a category and find your supplier in Ireland!</p><br>
         <div class="row">
         <form action="{{ url_for('get_filtered') }}" method="POST" class="col s12">
@@ -43,7 +43,7 @@
             <div class="card sticky-action">
                 <div class="card-image">
                     <img src="{{product.product_img}}" alt="Image of {{product.category_name}}"><a class="btn blue btn-floating halfway-fab pulse activator material-icons">...</a>
-                    <span class="card-title"><h2>{{product.category_name}}</h2></span>
+                    <span class="card-title"><h3>{{product.category_name}}</h3></span>
                 </div>
                 <div class="card-content">
                     <strong>{{product.product_brand}}<br>
@@ -51,14 +51,14 @@
                     Entry: {{product.entry_date}}<br>
                 </div>
                 <div class="card-reveal">
-                    <span class="card-title">{{product.product_name}}<br>
-                    {{product.product_brand}}<i class="right">x</i></span>
+                    <span class="card-title">{{product.product_brand}}<br>
+                    {{product.product_name}}<i class="material-icons right">expand_more</i></span>
                     <p>{{product.product_description}}<p>
                     <p>Price: <strong>{{product.product_price}}</strong></p>
                     <p>We like this in {{product.origin_name}}</strong></p>
                 </div>
                 <div class="card-action">
-                    Found in <a>{{product.supplier_name}}</a>
+                    <p>Found in <a>{{product.supplier_name}}</a></p>
                 </div>
             </div>
         </div>

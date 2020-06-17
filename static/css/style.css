@@ -80,10 +80,6 @@ nav ul a {
   padding: 10%;
 }
 
-.bg-light {
-  background-color: #ccf !important;
-}
-
 .img-fluid {
   min-width: 20px;
   height: auto;
@@ -94,6 +90,10 @@ footer {
     bottom: 0;
 }
 /* -------------------------------------Colours */
+
+.bg-light {
+  background-color: #ccf !important;
+}
 
 .purple {
   color: #ccf;
@@ -111,7 +111,7 @@ footer {
   background-color: transparent;
 }
 
-/* --------------------------------------------Typography */
+/* ----------------------------------------------------Typography */
 
 /* Scheme copied from https://www.cssfontstack.com and customized */
 
@@ -137,7 +137,7 @@ h2 {
 }
 
 h3 {
-  font-family: "Noto Sans", sans-serif;
+  font-family: Lora;
   font-size: 24px;
   font-style: bold;
   font-variant: normal;
@@ -151,7 +151,6 @@ p {
   font-style: normal;
   font-variant: normal;
   font-weight: 400;
-  line-height: 20px;
 }
 
 .ftr-text {
