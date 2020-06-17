@@ -63,12 +63,6 @@ nav ul a {
 .container {
   width: 80%;
   max-width: initial;
-  > .row {
-    margin: 0;
-    > .col {
-      padding: 0;
-    }
-  }
 }
 
 .jumbotron-fluid {
@@ -139,7 +133,6 @@ h2 {
 h3 {
   font-family: Lora;
   font-size: 24px;
-  font-style: bold;
   font-variant: normal;
   font-weight: 600;
   line-height: 15.4px;
