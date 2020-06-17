@@ -7,7 +7,7 @@
 		<form action="{{ url_for('get_filtered') }}" method="POST" class="col s12">
 			<div class="row">
 				<div class="input-field col s12">
-					<select  id="country" name="country_name" class="validate" required="true" aria-required="true">
+					<select  id="country" name="country_name" class="validate" required="" aria-required="true">
                         <option value="" disabled selected>Country of origin (required for filtering to work)</option>
                         {% for country in origin %}
                         <option value="{{country.origin_name}}" data-icon="{{country.origin_img}}" class="left circle">{{country.origin_name}}</option>
@@ -44,7 +44,7 @@
 					<div class="card-image">
 						<img src="{{product.product_img}}" alt="Image of {{product.category_name}}"><a
 							class="btn blue btn-floating halfway-fab pulse activator material-icons">...</a>
-						<span class="card-title"><h3>{{product.category_name}}</h3></span>
+						<span class="card-title">{{product.category_name}}</span>
 					</div>
 					<div class="card-content">
 						<strong>{{product.product_brand}}<br>
@@ -57,7 +57,6 @@
 							<p>{{product.product_description}}<p>
 									<p>Price: <strong>{{product.product_price}}</strong></p>
 									<p>We like this in {{product.origin_name}}
-						</strong>
 </p>
 </div>
 <div class="card-action">
