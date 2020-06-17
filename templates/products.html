@@ -8,7 +8,7 @@
 			<div class="row">
 				<div class="input-field col s12">
 					<select  id="country" name="country_name" class="validate" required="true" aria-required="true">
-                        <option value="" disabled selected>Country of origin</option>
+                        <option value="" disabled selected>Country of origin (required for filtering to work)</option>
                         {% for country in origin %}
                         <option value="{{country.origin_name}}" data-icon="{{country.origin_img}}" class="left circle">{{country.origin_name}}</option>
                         {% endfor %}
