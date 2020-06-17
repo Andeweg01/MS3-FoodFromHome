@@ -15,6 +15,8 @@
 </head>
 
 <body>
+
+	<!-- main navigation -->
 	<nav>
 		<div class="nav-wrapper"><a class="brand-logo"
 				href="{{url_for('get_products')}}"><img src="../static/img/FFH_logo_bg_ccf.gif" alt="Logo" class="img-fluid vert-middle"></a>
@@ -27,6 +29,8 @@
 					<li> <a href="{{url_for('get_categories')}}">ADMIN</a> </li>
 					<li> <a href="{{url_for('about')}}">ABOUT</a> </li>
 				</ul>
+
+	<!-- navigation for smallest sizes -->
 				<ul class="side-nav" id="mobile-demo">
 					<li> <a href="{{url_for('get_products')}}">HOME</a> </li>
 					<li> <a href="{{url_for('add_product')}}">ADD PRODUCT</a> </li>
@@ -36,12 +40,15 @@
 				</ul>
 		</div>
 	</nav>
+
+	<!-- main image and slogan -->
 	<div class="jumbotron-fluid">
 		<h1 class="center-align">Your Food - Your Identity</h1>
 		<hr class="solid">
 		<h2 class="center-align">find your home favourites in Ireland</h2>
 	</div>
 
+	<!-- templates go here -->
 	<div class="container">
 		{% block filtering %}
 		{% endblock %}
@@ -51,6 +58,7 @@
 		{% endblock %}
 	</div>
 
+	<!-- the footer -->
 	<footer class="page-footer">
 		<div class="row">
 			<div class="footer-copyright">
@@ -61,6 +69,7 @@
 		</div>
 	</footer>
 
+	<!-- scripts and references -->
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
