@@ -36,17 +36,19 @@ def get_filtered():
 
     if request.method == "POST":
         print(request.form.get("category_name"))
+        print(request.form.get("country_name"))
         product_category = request.form.get("category_name")
         print(product_category)
         if product_category:
-            filters["category"] = product_category
+            filters["category_name"] = product_category
             print(filters)
             filtered_results = mongo.db.product.find(filters)
 
         product_origin = request.form.get("country_name")
         print(product_origin)
         if product_origin:
-            filters["country"] = product_origin
+            filters["origin_name"] = product_origin
+            print(filters)
             filtered_results = mongo.db.product.find(filters)
             print(filtered_results)
         return render_template("filteredproducts.html",
